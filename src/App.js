@@ -1,9 +1,7 @@
-import logo from './logo.svg';
-
-import API from './API';
+import Anime from './Anime';
 
 function App() {
-  return <div className='App'></div>;
+  return <div className='App'>{<Anime />}</div>;
 }
 
 export default App;
