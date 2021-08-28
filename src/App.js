@@ -1,7 +1,11 @@
-import Anime from './Anime';
+import Home from './components/Home';
+import { GlobalStyle } from './GlobalStyle';
 
-function App() {
-  return <div className='App'>{<Anime />}</div>;
-}
+const App = () => (
+  <>
+    <div className='App'>{<Home />}</div>
+    <GlobalStyle />
+  </>
+);
 
 export default App;
