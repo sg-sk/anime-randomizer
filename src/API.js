@@ -1,7 +1,4 @@
-// Configuration
-import { API_URL, ANILIST_MAX_PAGE } from './config';
-
-// Helper
+import { API_URL, ANILIST_MAX_PER_PAGE, ANILIST_MAX_PAGE } from './config';
 import { getRandomizedNumber } from './helpers';
 
 // GraphQL query which fetches a list of animes
@@ -28,7 +25,7 @@ query ($page: Int, $perPage: Int) {
 
 const variables = {
   page: getRandomizedNumber(1, ANILIST_MAX_PAGE),
-  perPage: 50,
+  perPage: ANILIST_MAX_PER_PAGE,
 };
 
 const requestOptions = {
