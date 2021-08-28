@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Spinner = styled.div`
   order: 5px solid #eee;
-  border-top: 5px solid #eee;
+  border-top: 5px solid #353535;
   border-radius: 50%;
   width: 50px;
   height: 50px;
