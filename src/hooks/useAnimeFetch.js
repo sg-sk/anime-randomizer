@@ -32,6 +32,7 @@ export const useAnimeFetch = () => {
     fetchAnimeInfos();
   }, []);
 
+  // Fetch new random anime
   useEffect(() => {
     if (!isFetchingNewRandomAnime) return;
 
