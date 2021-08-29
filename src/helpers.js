@@ -12,3 +12,8 @@ export const removeHtmlMarkupFromString = (description) => {
 export const concatenateAnilistId = (id) => {
   return ANILIST_URL_PREFIX_ANIME + id;
 };
+
+export const isPersistedState = (stateName) => {
+  const localState = localStorage.getItem(stateName);
+  return localState && JSON.parse(localState);
+};
