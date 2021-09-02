@@ -3,7 +3,7 @@ import { GlobalStyle } from './GlobalStyle';
 
 const App = () => (
   <>
-    <div className='App'>{<Home />}</div>
+    <div className='App bg-gray-50'>{<Home />}</div>
     <GlobalStyle />
   </>
 );

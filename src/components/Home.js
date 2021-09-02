@@ -2,9 +2,9 @@ import React from 'react';
 import Button from './Button';
 import Grid from './Grid';
 import Spinner from './Spinner';
-import Thumbnail from './Thumbnail';
+import HeroPoster from './HeroPoster';
+import Poster from './Poster';
 import { useAnimeFetch } from '../hooks/useAnimeFetch';
-import { concatenateAnilistId, removeHtmlMarkupFromString } from '../helpers';
 
 const Home = () => {
   const {
@@ -20,29 +20,24 @@ const Home = () => {
 
   return (
     <div>
-      <span>{randomAnime.title.romaji}</span>
-      <br />
-      <span>{removeHtmlMarkupFromString(randomAnime.description)}</span>
-      <br />
-      <Button
-        text='Random Anime'
-        callback={() => setIsFetchNewRandomAnime(true)}
-      />
-      <br />
-      <img src={randomAnime.coverImage.large} alt='large-cover-img' />
-      <br />
-      <a href={concatenateAnilistId(randomAnime.id)}>Find More On AniList</a>
-      <br />
+      <div className='flex justify-center'>
+        <Button
+          text='Random Anime'
+          callback={() => setIsFetchNewRandomAnime(true)}
+        />
+      </div>
+      <div>
+        <HeroPoster anime={randomAnime} />
+      </div>
       <Grid header='Recent Anime Results'>
-        {randomAnimeList
-          ? randomAnimeList.map((anime) => (
-              <Thumbnail
-                key={anime.id}
-                anilistLink={concatenateAnilistId(anime.id)}
-                image={anime.coverImage.large}
-              />
-            ))
-          : null}
+        {randomAnimeList ? (
+          randomAnimeList
+            .slice(0)
+            .reverse()
+            .map((anime) => <Poster key={anime.id} animeInfo={anime} />)
+        ) : (
+          <span>No recently viewed anime</span>
+        )}
       </Grid>
     </div>
   );
