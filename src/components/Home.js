@@ -19,26 +19,28 @@ const Home = () => {
   if (error) return <div>Something went wrong...</div>;
 
   return (
-    <div>
-      <div className='flex justify-center'>
+    <div className='bg-blue-100'>
+      <div className='flex justify-center pt-8'>
         <Button
           text='Random Anime'
           callback={() => setIsFetchNewRandomAnime(true)}
         />
       </div>
-      <div>
-        <HeroPoster anime={randomAnime} />
+      <div className='px-8'>
+        <div className='pt-8'>
+          <HeroPoster anime={randomAnime} />
+        </div>
+        <Grid header='Recent Anime Results'>
+          {randomAnimeList.length > 0 ? (
+            randomAnimeList
+              .slice(0)
+              .reverse()
+              .map((anime) => <Poster key={anime.id} animeInfo={anime} />)
+          ) : (
+            <span>No recently viewed anime</span>
+          )}
+        </Grid>
       </div>
-      <Grid header='Recent Anime Results'>
-        {randomAnimeList ? (
-          randomAnimeList
-            .slice(0)
-            .reverse()
-            .map((anime) => <Poster key={anime.id} animeInfo={anime} />)
-        ) : (
-          <span>No recently viewed anime</span>
-        )}
-      </Grid>
     </div>
   );
 };

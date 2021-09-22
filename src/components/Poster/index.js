@@ -9,7 +9,7 @@ const Poster = ({ animeInfo }) => (
       anilistLink={concatenateAnilistId(animeInfo.id)}
       image={animeInfo.coverImage.large}
     />
-    <Text className='my-8'>{animeInfo.title.romaji}</Text>
+    <Text className='mt-4'>{animeInfo.title.romaji}</Text>
   </Wrapper>
 );
 

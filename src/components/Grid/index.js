@@ -3,8 +3,8 @@ import { Title, Content } from './Grid.styles';
 
 const Grid = ({ header, children }) => (
   <div>
-    <Title className='px-8 pt-8'>{header}</Title>
-    <Content className='p-8 flex flex-row flex-wrap gap-4'>{children}</Content>
+    <Title className='pt-8 pb-4'>{header}</Title>
+    <Content className='flex flex-row flex-wrap gap-6'>{children}</Content>
   </div>
 );
 

@@ -4,7 +4,7 @@ import { Image } from './HeroThumbnail.styles';
 const HeroThumbnail = ({ anilistLink, image }) => (
   <a href={anilistLink} target='_blank' rel='noreferrer'>
     <Image
-      className='sm:ml-8 rounded shadow-md'
+      className='rounded shadow-md transform hover:scale-105'
       src={image}
       alt='hero-anime-thumbnail'
     />

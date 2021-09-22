@@ -14,10 +14,19 @@ const HeroPoster = ({ anime }) => (
         image={anime.coverImage.large}
       />
     </div>
-    <Information className='mx-8'>
-      <h3 className='mb-2 font-bold'>{anime.title.romaji}</h3>
+    <Information className='sm:mx-8'>
+      <p className='mb-2 font-black'>
+        {anime.title.romaji} ({anime.seasonYear ? anime.seasonYear : <>TBD</>})
+      </p>
+      <div className='sm:inline-flex bg-blue-500 text-white text-center font-extrabold mb-2 px-4 py-5 shadow rounded'>
+        {anime.averageScore ? <>{anime.averageScore}%</> : <>N/A</>}
+      </div>
       <p className='text-justify'>
-        {removeHtmlMarkupFromString(anime.description)}
+        {anime.description ? (
+          removeHtmlMarkupFromString(anime.description)
+        ) : (
+          <>No Description</>
+        )}
       </p>
     </Information>
   </div>
