@@ -1,9 +1,11 @@
+import Header from './components/Header';
 import Home from './components/Home';
 import { GlobalStyle } from './GlobalStyle';
 
 const App = () => (
   <>
-    <div className='App bg-gray-50'>{<Home />}</div>
+    <Header />
+    <Home />
     <GlobalStyle />
   </>
 );
