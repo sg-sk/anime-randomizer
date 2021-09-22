@@ -35,7 +35,6 @@ export const useAnimeFetch = () => {
     const localState = isPersistedState('homeState');
     if (localState) {
       setRandomAnimeList(localState);
-      return;
     }
   }, []);
 
@@ -44,14 +43,25 @@ export const useAnimeFetch = () => {
     if (!isFetchingNewRandomAnime) return;
 
     fetchAnimeInfos();
-    setRandomAnimeList((previousRandomAnimeInfos) => {
-      // Shift first anime object if it reaches the maximum displayed anime results
-      if (previousRandomAnimeInfos.length === MAX_RECENT_ANIME_RESULTS)
-        previousRandomAnimeInfos.shift();
-      return [...previousRandomAnimeInfos, randomAnime];
+
+    // Verify if current random anime is already in the random anime list
+    let isAnimeDuplicate = false;
+    randomAnimeList.forEach((anime) => {
+      if (anime.title.romaji === randomAnime.title.romaji) {
+        isAnimeDuplicate = true;
+      }
     });
+    if (!isAnimeDuplicate) {
+      setRandomAnimeList((previousRandomAnimeInfos) => {
+        // Shift first anime object if it reaches the maximum displayed anime results
+        if (previousRandomAnimeInfos.length === MAX_RECENT_ANIME_RESULTS) {
+          previousRandomAnimeInfos.shift();
+        }
+        return [...previousRandomAnimeInfos, randomAnime];
+      });
+    }
     setIsFetchNewRandomAnime(false);
-  }, [randomAnime, isFetchingNewRandomAnime]);
+  }, [randomAnime, randomAnimeList, isFetchingNewRandomAnime]);
 
   // Write to localStorage
   useEffect(() => {
