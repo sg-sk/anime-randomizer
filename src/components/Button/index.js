@@ -1,12 +1,14 @@
 import React from 'react';
 
-const Button = ({ text, callback }) => (
-  <button
+import { Content } from './Button.styles';
+
+const Button = ({ callback, image }) => (
+  <Content
     type='button'
     onClick={callback}
-    className='bg-blue-300 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
-    {text}
-  </button>
+    className='fixed bottom-20 right-5 md:right-12 lg:right-12 xl:right-32 rounded-lg border-black border-2 bg-gray-100 transform hover:scale-110'
+    image={image}
+  />
 );
 
 export default Button;
