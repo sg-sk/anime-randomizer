@@ -1,10 +1,11 @@
 import React from 'react';
 import Button from './Button';
-import Grid from './Grid';
+import List from './List';
+import AnimeItem from './AnimeItem';
 import Spinner from './Spinner';
 import HeroPoster from './HeroPoster';
-import Poster from './Poster';
 import { useAnimeFetch } from '../hooks/useAnimeFetch';
+import Refresh from '../images/refresh.png';
 
 const Home = () => {
   const {
@@ -20,26 +21,28 @@ const Home = () => {
 
   return (
     <div className='bg-blue-100'>
-      <div className='flex justify-center pt-8'>
-        <Button
-          text='Random Anime'
-          callback={() => setIsFetchNewRandomAnime(true)}
-        />
-      </div>
-      <div className='px-8'>
-        <div className='pt-8'>
-          <HeroPoster anime={randomAnime} />
-        </div>
-        <Grid header='Recent Anime Results'>
+      <Button
+        text='Random Anime'
+        callback={() => setIsFetchNewRandomAnime(true)}
+        image={Refresh}
+      />
+      <div>
+        <HeroPoster anime={randomAnime} />
+        <h3 className='flex justify-center mb-5 mx-5 md:mx-20 lg:mx-40 xl:mx-60 2xl:mx-80 text-2xl '>
+          Most Recent Results
+        </h3>
+        <List>
           {randomAnimeList.length > 0 ? (
             randomAnimeList
               .slice(0)
               .reverse()
-              .map((anime) => <Poster key={anime.id} animeInfo={anime} />)
+              .map((anime) => <AnimeItem key={anime.id} animeInfo={anime} />)
           ) : (
-            <span>No recently viewed anime</span>
+            <div className='flex justify-center text-lg'>
+              <span>No recently viewed anime 🔎</span>
+            </div>
           )}
-        </Grid>
+        </List>
       </div>
     </div>
   );
