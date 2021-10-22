@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
-export const Image = styled.img`
-  width: 345px;
-  height: 525px;
-  object-fit: cover;
+export const Image = styled.div`
+  background-image: url(${({ image }) => image});
+  background-position: center 35%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+  width: 200px;
 `;
