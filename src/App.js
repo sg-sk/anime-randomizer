@@ -1,11 +1,11 @@
-import Header from './components/Header';
 import Home from './components/Home';
+import Footer from './components/Footer';
 import { GlobalStyle } from './GlobalStyle';
 
 const App = () => (
   <>
-    <Header />
     <Home />
+    <Footer />
     <GlobalStyle />
   </>
 );
