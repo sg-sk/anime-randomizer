@@ -10,10 +10,22 @@ export const removeHtmlMarkupFromString = (description) => {
 };
 
 export const concatenateAnilistId = (id) => {
-  return ANILIST_URL_PREFIX_ANIME + id;
+  return ANILIST_URL_PREFIX_ANIME.concat(id);
 };
 
 export const isPersistedState = (stateName) => {
   const localState = localStorage.getItem(stateName);
   return localState && JSON.parse(localState);
+};
+
+export const concatenateGenres = (genres) => {
+  let genreString = '';
+  for (let i = 0; i < genres.length; i++) {
+    if (i !== genres.length - 1) {
+      genreString += genres[i].concat(', ');
+    } else {
+      genreString += genres[i];
+    }
+  }
+  return genreString;
 };
