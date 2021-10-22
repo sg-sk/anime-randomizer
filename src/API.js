@@ -13,11 +13,16 @@ query ($page: Int, $perPage: Int) {
             seasonYear
             averageScore
             coverImage {
+              extraLarge
               large
+              medium
               color
             }
             bannerImage
             description
+            genres
+            episodes
+            status
         }
     }
 }
