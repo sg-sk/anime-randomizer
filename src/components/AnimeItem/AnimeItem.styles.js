@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div``;
-
 export const Image = styled.div`
   background-image: url(${({ image }) => image});
   background-position: center 35%;
