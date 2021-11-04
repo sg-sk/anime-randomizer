@@ -1,3 +1,6 @@
+## Anime Randomizer
+Anime randomizer which fetches and displays data from AniList's API.
+
 ## Quick start
 
 1. Make sure that you have nodejs and npm installed.
@@ -10,3 +13,6 @@
 
 - React.js
 - Tailwind.css
+
+## API
+- [AniList API Documentation](https://github.com/AniList/ApiV2-GraphQL-Docs)
