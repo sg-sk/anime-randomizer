@@ -22,10 +22,6 @@ export const useAnimeFetch = () => {
 
       setRandomAnime(randomAnimeInfo);
       setLoading(false);
-
-      // Scroll to top of the page
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
     } catch (error) {
       setError(true);
     }
@@ -47,6 +43,10 @@ export const useAnimeFetch = () => {
     if (!isFetchingNewRandomAnime) return;
 
     fetchAnimeInfos();
+
+    // Scroll to top of the page
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 
     // Verify if current random anime is already in the random anime list
     let isAnimeDuplicate = false;
